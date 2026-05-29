@@ -1,4 +1,205 @@
-/* 1. Customer Journey Section */
+/* ===== Hero Section ===== */
+.hiw-hero {
+  position: relative;
+  padding: calc(72px + var(--spacing-16)) 0 var(--spacing-16);
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFF8E6 0%, #FFFFFF 50%, #FFF8E6 100%);
+}
+
+.hiw-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hiw-hero__shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.hiw-hero__shape--1 {
+  width: 400px;
+  height: 400px;
+  background: var(--primary-gradient);
+  top: -100px;
+  right: -100px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hiw-hero__shape--2 {
+  width: 300px;
+  height: 300px;
+  background: var(--primary-gradient);
+  bottom: -50px;
+  left: -50px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.hiw-hero__shape--3 {
+  width: 200px;
+  height: 200px;
+  background: var(--primary-gradient);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: float 6s ease-in-out infinite;
+}
+
+.hiw-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hiw-hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-6);
+  color: var(--gray-900);
+}
+
+.hiw-hero__subtitle {
+  font-size: 1.25rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ===== Customer Journey Section ===== */
+.hiw-customer-journey {
+  padding: var(--spacing-16) 0;
+}
+
+.hiw-journey-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-8);
+}
+
+@media (min-width: 640px) {
+  .hiw-journey-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hiw-journey-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hiw-journey-card {
+  position: relative;
+  background: var(--white);
+  border: 2px solid var(--gray-100);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-8);
+  transition: all var(--duration-normal) var(--ease-smooth);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hiw-journey-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--card-color, var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+.hiw-journey-card:hover::before,
+.hiw-journey-card.active::before {
+  transform: scaleX(1);
+}
+
+.hiw-journey-card:hover,
+.hiw-journey-card.active {
+  border-color: var(--card-color, var(--primary));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+}
+
+.hiw-journey-card__number {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--gray-100);
+  line-height: 1;
+  transition: color var(--duration-normal);
+}
+
+.hiw-journey-card:hover .hiw-journey-card__number,
+.hiw-journey-card.active .hiw-journey-card__number {
+  color: var(--card-color, var(--primary));
+  opacity: 0.2;
+}
+
+.hiw-journey-card__icon {
+  width: 64px;
+  height: 64px;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  margin-bottom: var(--spacing-6);
+  transition: all var(--duration-normal);
+}
+
+.hiw-journey-card:hover .hiw-journey-card__icon,
+.hiw-journey-card.active .hiw-journey-card__icon {
+  background: var(--card-color, var(--primary));
+  color: var(--white);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hiw-journey-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-3);
+}
+
+.hiw-journey-card__desc {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+}
+
+.hiw-journey-card__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--gray-300);
+  transition: all var(--duration-normal);
+}
+
+.hiw-journey-card:hover .hiw-journey-card__arrow,
+.hiw-journey-card.active .hiw-journey-card__arrow {
+  color: var(--card-color, var(--primary));
+  transform: translateX(4px);
+}
+
+/* 1. Customer Journey */
 .hiw-customer {
   padding-top: calc(72px + var(--spacing-16));
 }
@@ -20,11 +221,11 @@
 .hiw-video-placeholder {
   width: 100%;
   aspect-ratio: 4/3;
-  background-color: var(--gray-400);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: var(--radius-2xl);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-2xl);
 }
 
 .hiw-video-overlay {
@@ -33,12 +234,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-6);
+}
+
+.hiw-video-play {
+  color: white;
+  opacity: 0.9;
+  margin-bottom: var(--spacing-4);
+  transition: all var(--duration-normal);
+  cursor: pointer;
+}
+
+.hiw-video-play:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .hiw-features {
@@ -123,8 +337,25 @@
 
 /* 3. Steps to Growth */
 .hiw-steps-section {
-  padding-bottom: var(--spacing-24);
-  background-color: #FAFAFA;
+  padding: var(--spacing-24) 0;
+  background: var(--primary-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+.hiw-steps-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.bg-gradient {
+  background: var(--primary-gradient);
 }
 
 .hiw-stepper-container {
@@ -132,6 +363,7 @@
   max-width: 800px;
   margin: 0 auto var(--spacing-10);
   padding: 0 var(--spacing-4);
+  z-index: 1;
 }
 
 .hiw-stepper-line {
@@ -139,8 +371,8 @@
   top: 50%;
   left: 5%;
   right: 5%;
-  height: 2px;
-  background-color: var(--gray-200);
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-50%);
   z-index: 1;
 }
@@ -153,29 +385,33 @@
 }
 
 .hiw-stepper-node {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background-color: var(--gray-100);
-  color: var(--gray-500);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
   font-weight: 800;
   font-size: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 3px solid transparent;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  box-shadow: 0 0 0 4px #FAFAFA;
+  transition: all var(--duration-normal);
+  backdrop-filter: blur(10px);
 }
 
 .hiw-stepper-node:hover {
-  background-color: var(--gray-200);
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
 .hiw-stepper-node.active {
-  background-color: var(--primary-dark);
-  color: var(--white);
+  background: white;
+  color: var(--primary-dark);
+  border-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: scale(1.15);
 }
 
 .hiw-step-cards {
@@ -205,23 +441,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid var(--gray-100);
-  transition: all var(--transition-fast);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all var(--duration-normal);
 }
 
 .hiw-step-card.active {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary);
+  border-color: white;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
 }
 
 .hiw-step-card__icon {
-  color: var(--gray-400);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: var(--spacing-4);
-  transition: color var(--transition-fast);
+  transition: color var(--duration-normal);
 }
 
 .hiw-step-card.active .hiw-step-card__icon {
   color: var(--primary);
+}
+
+.hiw-step-card h4 {
+  color: white;
+  transition: color var(--duration-normal);
+}
+
+.hiw-step-card.active h4 {
+  color: var(--gray-900);
+}
+
+.hiw-step-card p {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color var(--duration-normal);
+}
+
+.hiw-step-card.active p {
+  color: var(--gray-600);
 }
 
 /* Step Detail Panel */
@@ -229,6 +487,9 @@
   max-width: 800px;
   margin: 0 auto;
   background-color: var(--white);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .hiw-step-detail__header {
@@ -237,10 +498,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: linear-gradient(to right, #FFF8E6, white);
 }
 
 .hiw-step-detail__body {
-  padding: var(--spacing-8);
+  padding: var(--spacing-10);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-6);
@@ -254,15 +516,16 @@
 }
 
 .hiw-step-detail__icon-large {
-  width: 80px;
-  height: 80px;
-  background-color: var(--primary-50);
-  color: var(--primary-dark);
+  width: 96px;
+  height: 96px;
+  background: var(--primary-gradient);
+  color: white;
   border-radius: var(--radius-2xl);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(212, 144, 10, 0.3);
 }
 
 .hiw-step-detail__content {
@@ -270,8 +533,35 @@
 }
 
 .hiw-step-detail__tip {
-  background-color: #FEF3C7; /* amber-100 */
-  padding: var(--spacing-4);
-  border-radius: var(--radius-md);
-  border-left: 4px solid #F59E0B; /* amber-500 */
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  padding: var(--spacing-5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid #F59E0B;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hiw-hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .hiw-journey-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hiw-stepper-node {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  
+  .hiw-step-detail__body {
+    padding: var(--spacing-6);
+  }
+  
+  .hiw-step-detail__icon-large {
+    width: 72px;
+    height: 72px;
+  }
 }

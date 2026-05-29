@@ -2,13 +2,46 @@ import React, { useState } from 'react';
 import { 
   CheckCircle, Users, Award, ShieldCheck, 
   TrendingUp, UserPlus, Store, Share2, SearchCheck, 
-  IndianRupee, Search, CheckCircle2
+  IndianRupee, Search, CheckCircle2, Package, Truck, 
+  DollarSign, Globe, Smartphone, Zap, ArrowRight, PlayCircle
 } from 'lucide-react';
 import './HowItWorks.css';
 import ScrollReveal from '../components/ScrollReveal';
 
 const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1);
+  const [activeCustomerStep, setActiveCustomerStep] = useState(1);
+
+  const customerSteps = [
+    { 
+      num: '01', 
+      title: 'Browse Products', 
+      desc: 'Explore thousands of verified, quality-checked products from local sellers near you.',
+      icon: <Globe size={32} />,
+      color: '#3B82F6'
+    },
+    { 
+      num: '02', 
+      title: 'Place Your Order', 
+      desc: 'Add to cart and checkout securely. Multiple payment options available.',
+      icon: <Smartphone size={32} />,
+      color: '#10B981'
+    },
+    { 
+      num: '03', 
+      title: 'Fast Delivery', 
+      desc: 'Get your products delivered right to your doorstep with real-time tracking.',
+      icon: <Truck size={32} />,
+      color: '#F59E0B'
+    },
+    { 
+      num: '04', 
+      title: 'Earn & Save', 
+      desc: 'Earn rewards on every purchase. Refer friends for additional cashback.',
+      icon: <DollarSign size={32} />,
+      color: '#EC4899'
+    }
+  ];
 
   const stepsDetails = {
     1: {
@@ -40,8 +73,78 @@ const HowItWorks: React.FC = () => {
 
   return (
     <div className="hiw-page">
-      {/* 1. Customer Journey */}
-      <section className="section bg-white hiw-customer">
+      {/* Hero Section */}
+      <section className="hiw-hero">
+        <div className="hiw-hero__bg">
+          <div className="hiw-hero__shape hiw-hero__shape--1" />
+          <div className="hiw-hero__shape hiw-hero__shape--2" />
+          <div className="hiw-hero__shape hiw-hero__shape--3" />
+        </div>
+        <div className="container">
+          <ScrollReveal variant="fade-up">
+            <div className="hiw-hero__content">
+              <div className="section-label">
+                <Zap size={16} /> Simple & Seamless
+              </div>
+              <h1 className="hiw-hero__title">
+                How It <span className="text-primary">Works</span>
+              </h1>
+              <p className="hiw-hero__subtitle">
+                From browsing to delivery, experience a seamless shopping journey in just 4 simple steps.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Customer Journey - 4 Steps */}
+      <section className="section bg-white hiw-customer-journey">
+        <div className="container">
+          <ScrollReveal variant="fade-up">
+            <div className="text-center mb-12">
+              <div className="section-label" style={{ display: 'inline-flex' }}>
+                <Package size={16} /> For Customers
+              </div>
+              <h2 className="section-title">Your Shopping Journey</h2>
+              <p className="section-subtitle" style={{ margin: '0 auto' }}>
+                Experience hassle-free shopping with verified quality at every step
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Interactive Step Cards */}
+          <div className="hiw-journey-grid">
+            {customerSteps.map((step, index) => (
+              <ScrollReveal key={index} variant="fade-up" delay={index * 100}>
+                <div 
+                  className={`hiw-journey-card ${activeCustomerStep === index + 1 ? 'active' : ''}`}
+                  onMouseEnter={() => setActiveCustomerStep(index + 1)}
+                  style={{ '--card-color': step.color } as React.CSSProperties}
+                >
+                  <div className="hiw-journey-card__number">{step.num}</div>
+                  <div className="hiw-journey-card__icon">{step.icon}</div>
+                  <h3 className="hiw-journey-card__title">{step.title}</h3>
+                  <p className="hiw-journey-card__desc">{step.desc}</p>
+                  <div className="hiw-journey-card__arrow">
+                    <ArrowRight size={20} />
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal variant="fade-up">
+            <div className="text-center mt-12">
+              <button className="btn btn-primary btn-lg">
+                Start Shopping <ArrowRight size={18} />
+              </button>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 1. Customer Journey - Quality Focus */}
+      <section className="section bg-gray-50 hiw-customer">
         <div className="container">
           <div className="hiw-customer__grid">
             {/* Left: Video/Visual */}
@@ -49,6 +152,9 @@ const HowItWorks: React.FC = () => {
               <ScrollReveal variant="slide-right">
                 <div className="hiw-video-placeholder">
                   <div className="hiw-video-overlay">
+                    <div className="hiw-video-play">
+                      <PlayCircle size={64} />
+                    </div>
                     <div className="badge badge-primary mb-4" style={{ backgroundColor: '#F59E0B', color: 'white', padding: '8px 16px', fontSize: '0.85rem' }}>
                       <CheckCircle2 size={16} />
                       Physical Audit Verified
@@ -117,13 +223,18 @@ const HowItWorks: React.FC = () => {
       </section>
 
       {/* 2. Making a Real Difference */}
-      <section className="section bg-gray-50">
+      <section className="section bg-white">
         <div className="container">
           <ScrollReveal variant="fade-up">
-            <h2 className="text-4xl font-extrabold mb-4">Making a Real Difference</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mb-12">
-              We're not just a platform; we're a movement empowering local commerce through absolute transparency, real-time analytics, and verified trust.
-            </p>
+            <div className="text-center mb-12">
+              <div className="section-label" style={{ display: 'inline-flex' }}>
+                <Award size={16} /> Our Impact
+              </div>
+              <h2 className="section-title">Making a Real Difference</h2>
+              <p className="section-subtitle" style={{ margin: '0 auto' }}>
+                We're not just a platform; we're a movement empowering local commerce through absolute transparency, real-time analytics, and verified trust.
+              </p>
+            </div>
           </ScrollReveal>
 
           <div className="hiw-difference-grid">
@@ -176,13 +287,16 @@ const HowItWorks: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Five Steps to Growth */}
-      <section className="section bg-white hiw-steps-section">
+      {/* 3. Five Steps to Growth - For Partners */}
+      <section className="section bg-gradient hiw-steps-section">
         <div className="container">
           <div className="text-center mb-16">
             <ScrollReveal variant="fade-up">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Five Steps to Growth</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <div className="section-label" style={{ display: 'inline-flex', background: 'rgba(255, 255, 255, 0.2)', color: 'white' }}>
+                <TrendingUp size={16} /> For Partners
+              </div>
+              <h2 className="section-title" style={{ color: 'white' }}>Five Steps to Growth</h2>
+              <p className="section-subtitle" style={{ margin: '0 auto', color: 'rgba(255, 255, 255, 0.9)' }}>
                 Our proven system designed to take you from community member to successful digital entrepreneur.
               </p>
             </ScrollReveal>
