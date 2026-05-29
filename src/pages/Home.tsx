@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight, Play, ShieldCheck, Truck, Star, Users, Package,
-  Smartphone, CheckCircle, TrendingUp, Award, Clock, Heart,
-  Zap, Globe, DollarSign, BadgeCheck, UserPlus, Store, Share2, 
+  ArrowRight, Play, ShieldCheck, Star, Users, Package,
+  CheckCircle, TrendingUp, Award, Clock, Heart,
+  Zap, BadgeCheck, UserPlus, Store, Share2, 
   SearchCheck, IndianRupee
 } from 'lucide-react';
 import './Home.css';
@@ -147,43 +147,83 @@ const Home: React.FC = () => {
             <div className="hero__phone">
               <div className="hero__phone-notch" />
               <div className="hero__phone-screen">
+                {/* Header with gradient */}
                 <div className="hero__phone-header">
+                  <div className="hero__phone-time">9:41</div>
                   <span className="hero__phone-brand">চেক করেছো?</span>
+                  <div className="hero__phone-icons">
+                    <div className="hero__phone-signal"></div>
+                    <div className="hero__phone-battery"></div>
+                  </div>
                 </div>
+                
+                {/* Banner with animation */}
                 <div className="hero__phone-banner">
+                  <div className="hero__phone-banner-icon">⚡</div>
                   <span>DIGITAL INVENTORY</span>
+                  <div className="hero__phone-banner-badge">LIVE</div>
                 </div>
+
+                {/* Trending Section */}
                 <div className="hero__phone-section">
                   <div className="hero__phone-section-head">
                     <strong>Trending Verified</strong>
-                    <span>See all</span>
+                    <span className="hero__phone-see-all">See all →</span>
                   </div>
                   <div className="hero__phone-grid">
-                    {['Smartphone', 'Mixer Grinder', 'Solar Lantern', 'Power Bank'].map((item, i) => (
+                    {[
+                      { name: 'Smartphone', icon: '📱', price: '₹6,800', discount: '32% OFF' },
+                      { name: 'Mixer Grinder', icon: '🔌', price: '₹1,850', discount: '42% OFF' },
+                      { name: 'Solar Lantern', icon: '☀️', price: '₹1,100', discount: '39% OFF' },
+                      { name: 'Power Bank', icon: '🔋', price: '₹899', discount: '40% OFF' }
+                    ].map((item, i) => (
                       <div key={i} className="hero__phone-card">
-                        <div className="hero__phone-card-icon">
-                          {i === 0 ? '📱' : i === 1 ? '🔌' : i === 2 ? '☀️' : '🔋'}
+                        <div className="hero__phone-card-discount">{item.discount}</div>
+                        <div className="hero__phone-card-icon">{item.icon}</div>
+                        <div className="hero__phone-card-name">{item.name}</div>
+                        <div className="hero__phone-card-price">{item.price}</div>
+                        <div className="hero__phone-card-badge">
+                          <span className="hero__phone-card-check">✓</span>
+                          VERIFIED
                         </div>
-                        <div className="hero__phone-card-name">{item}</div>
-                        <div className="hero__phone-card-badge">✓ VERIFIED</div>
                       </div>
                     ))}
                   </div>
                 </div>
+
+                {/* Settlement Card with animation */}
                 <div className="hero__phone-settlement">
-                  <span className="hero__phone-settlement-icon">₹</span>
-                  <div>
+                  <div className="hero__phone-settlement-icon">
+                    <span>₹</span>
+                  </div>
+                  <div className="hero__phone-settlement-content">
                     <div className="hero__phone-settlement-label">SETTLEMENTS</div>
                     <div className="hero__phone-settlement-value">Instant Payout</div>
+                    <div className="hero__phone-settlement-status">
+                      <span className="hero__phone-settlement-dot"></span>
+                      Active
+                    </div>
+                  </div>
+                  <div className="hero__phone-settlement-arrow">→</div>
+                </div>
+
+                {/* Quick Stats */}
+                <div className="hero__phone-stats">
+                  <div className="hero__phone-stat">
+                    <div className="hero__phone-stat-value">4.2K+</div>
+                    <div className="hero__phone-stat-label">Partners</div>
+                  </div>
+                  <div className="hero__phone-stat-divider"></div>
+                  <div className="hero__phone-stat">
+                    <div className="hero__phone-stat-value">99.9%</div>
+                    <div className="hero__phone-stat-label">Verified</div>
+                  </div>
+                  <div className="hero__phone-stat-divider"></div>
+                  <div className="hero__phone-stat">
+                    <div className="hero__phone-stat-value">24/7</div>
+                    <div className="hero__phone-stat-label">Support</div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="hero__float-badge hero__float-badge--trust animate-float">
-              <ShieldCheck size={18} />
-              <div>
-                <strong>TRUST LEVEL</strong>
-                <span>100% Certified</span>
               </div>
             </div>
           </div>

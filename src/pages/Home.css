@@ -8,7 +8,7 @@
   padding: 120px 0 80px;
   overflow: hidden;
   background: linear-gradient(175deg, var(--white) 0%, var(--primary-50) 50%, var(--white) 100%);
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
 }
@@ -146,175 +146,409 @@
 .hero__visual {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 80px;
+  overflow: hidden;
 }
 
 .hero__phone {
-  width: 280px;
-  background: var(--gray-900);
-  border-radius: 36px;
-  padding: 12px;
-  box-shadow: var(--shadow-2xl), 0 0 60px rgba(212, 144, 10, 0.1);
+  width: 320px;
+  height: 640px;
+  max-height: 680px;
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 42px;
+  padding: 14px;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   position: relative;
   z-index: 2;
+  transform: perspective(1200px) rotateY(-4deg);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.hero__phone:hover {
+  transform: perspective(1200px) rotateY(-1deg) translateY(-6px);
 }
 
 .hero__phone-notch {
-  width: 120px;
+  width: 140px;
   height: 28px;
-  background: var(--gray-900);
-  border-radius: 0 0 16px 16px;
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 0 0 18px 18px;
   margin: 0 auto;
   position: relative;
   z-index: 5;
   margin-top: -2px;
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero__phone-screen {
-  background: var(--white);
-  border-radius: 24px;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 28px;
   overflow: hidden;
-  min-height: 420px;
+  height: 100%;
+  min-height: 560px;
+  max-height: 620px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Enhanced Header */
 .hero__phone-header {
-  background: var(--primary);
-  padding: 20px 16px 14px;
-  text-align: center;
+  background: var(--primary-gradient);
+  padding: 24px 18px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__phone-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.hero__phone-time {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
 }
 
 .hero__phone-brand {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--white);
-  font-size: 1rem;
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.hero__phone-icons {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__phone-signal,
+.hero__phone-battery {
+  width: 16px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+}
+
+.hero__phone-battery {
+  position: relative;
+}
+
+.hero__phone-battery::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 3px;
+  width: 2px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Enhanced Banner */
 .hero__phone-banner {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  padding: 10px 16px;
-  text-align: center;
-  font-size: 0.65rem;
-  font-weight: 700;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 0.7rem;
+  font-weight: 800;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
 }
 
+.hero__phone-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.hero__phone-banner-icon {
+  font-size: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.hero__phone-banner-badge {
+  padding: 2px 7px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9px;
+  font-size: 0.6rem;
+  font-weight: 900;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Enhanced Section */
 .hero__phone-section {
-  padding: 14px 12px;
+  padding: 16px 14px;
 }
 
 .hero__phone-section-head {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
-  font-size: 0.75rem;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
 }
 
 .hero__phone-section-head strong {
-  color: var(--gray-800);
+  color: var(--gray-900);
+  font-size: 0.85rem;
 }
 
-.hero__phone-section-head span {
+.hero__phone-see-all {
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.hero__phone-see-all:hover {
+  transform: translateX(2px);
 }
 
 .hero__phone-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 10px;
 }
 
+/* Enhanced Product Cards */
 .hero__phone-card {
-  background: var(--gray-50);
-  border-radius: 10px;
-  padding: 10px 8px;
+  background: var(--white);
+  border: 2px solid var(--gray-100);
+  border-radius: 12px;
+  padding: 12px 10px;
   text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero__phone-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 144, 10, 0.15);
+  border-color: var(--primary-200);
+}
+
+.hero__phone-card-discount {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.5rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
 }
 
 .hero__phone-card-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 6px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero__phone-card:nth-child(1) .hero__phone-card-icon { animation-delay: 0s; }
+.hero__phone-card:nth-child(2) .hero__phone-card-icon { animation-delay: 0.5s; }
+.hero__phone-card:nth-child(3) .hero__phone-card-icon { animation-delay: 1s; }
+.hero__phone-card:nth-child(4) .hero__phone-card-icon { animation-delay: 1.5s; }
+
+.hero__phone-card-name {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gray-800);
   margin-bottom: 4px;
 }
 
-.hero__phone-card-name {
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--gray-700);
+.hero__phone-card-price {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
 }
 
 .hero__phone-card-badge {
-  font-size: 0.5rem;
-  color: var(--green);
-  font-weight: 700;
-  margin-top: 3px;
-}
-
-.hero__phone-settlement {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 12px;
-  padding: 10px 12px;
-  background: var(--gray-50);
-  border-radius: 10px;
-}
-
-.hero__phone-settlement-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--primary-50);
-  color: var(--primary);
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 3px;
+  font-size: 0.5rem;
+  color: var(--green);
   font-weight: 800;
-  font-size: 0.9rem;
+  background: var(--green-light);
+  padding: 3px 6px;
+  border-radius: 6px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.hero__phone-card-check {
+  font-size: 0.6rem;
+}
+
+/* Enhanced Settlement Card */
+.hero__phone-settlement {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--primary-50), var(--white));
+  border-radius: 14px;
+  border: 2px solid var(--primary-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__phone-settlement::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 4s infinite;
+}
+
+.hero__phone-settlement-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-gradient);
+  color: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(212, 144, 10, 0.3);
+  flex-shrink: 0;
+}
+
+.hero__phone-settlement-content {
+  flex: 1;
 }
 
 .hero__phone-settlement-label {
-  font-size: 0.55rem;
-  color: var(--gray-400);
-  font-weight: 600;
+  font-size: 0.6rem;
+  color: var(--gray-500);
+  font-weight: 700;
   letter-spacing: 0.05em;
+  margin-bottom: 2px;
 }
 
 .hero__phone-settlement-value {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
 }
 
-/* Float Badges */
-.hero__float-badge {
-  position: absolute;
+.hero__phone-settlement-status {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: var(--white);
-  padding: 12px 18px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
-  z-index: 5;
-  font-size: 0.75rem;
-}
-
-.hero__float-badge--trust {
-  top: 15%;
-  right: -10%;
+  gap: 4px;
+  font-size: 0.6rem;
   color: var(--green);
+  font-weight: 600;
 }
 
-.hero__float-badge strong {
-  display: block;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
+.hero__phone-settlement-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
 }
 
-.hero__float-badge span {
+.hero__phone-settlement-arrow {
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Quick Stats */
+.hero__phone-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 12px 14px;
+  margin: 0 14px 14px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 2px solid var(--gray-100);
+}
+
+.hero__phone-stat {
+  text-align: center;
+}
+
+.hero__phone-stat-value {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--gray-900);
+  margin-bottom: 2px;
+}
+
+.hero__phone-stat-label {
+  font-size: 0.6rem;
   color: var(--gray-500);
-  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.hero__phone-stat-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--gray-200);
 }
 
 /* In-view triggers */
@@ -769,6 +1003,39 @@
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Tablet/Mobile Responsive: 768px - 900px */
+@media (max-width: 900px) and (min-width: 768px) {
+  .hero__visual {
+    padding-right: 0;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero__phone {
+    width: 280px;
+    height: 560px;
+    max-height: 580px;
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+
+  .hero__phone:hover {
+    transform: scale(0.85) translateY(-6px);
+  }
+
+  .hero__phone-screen {
+    min-height: 520px;
+    max-height: 540px;
+  }
+
+  /* Ensure proper spacing */
+  .hero__inner {
+    gap: 48px;
+    align-items: center;
+  }
+}
+
 @media (max-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -813,18 +1080,33 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .hero {
     padding: 100px 0 60px;
     min-height: auto;
   }
 
-  .hero__phone {
-    width: 240px;
+  .hero__visual {
+    padding-right: 0;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .hero__float-badge--trust {
-    right: -5%;
+  .hero__phone {
+    width: 260px;
+    height: 520px;
+    max-height: 540px;
+    transform: scale(0.88);
+    transform-origin: center;
+  }
+
+  .hero__phone:hover {
+    transform: scale(0.88) translateY(-6px);
+  }
+
+  .hero__phone-screen {
+    min-height: 480px;
+    max-height: 500px;
   }
 
   .stats__grid {
@@ -833,5 +1115,25 @@
 
   .categories__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .hero__phone {
+    width: 240px;
+    height: 480px;
+    max-height: 500px;
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  .hero__phone:hover {
+    transform: scale(0.82) translateY(-6px);
+  }
+
+  .hero__phone-screen {
+    min-height: 440px;
+    max-height: 460px;
   }
 }
