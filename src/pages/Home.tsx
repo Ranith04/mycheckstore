@@ -88,7 +88,7 @@ const Home: React.FC = () => {
               <span className="hero__title-accent">Neighborhood Store.</span>
             </h1>
             <p className="hero__desc">
-              Bringing the best local products directly to your doorstep through verified partners. 
+              Bringing the best local products directly to your doorstep through verified partners.
               No stock holding, zero inventory carrying risk—just absolute quality you can trust.
             </p>
             <div className="hero__actions">
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
             </div>
             <div className="hero__trust">
               <div className="hero__trust-avatars">
-                {[1,2,3,4,5].map(i => (
+                {[1, 2, 3, 4, 5].map(i => (
                   <div key={i} className="hero__trust-avatar" style={{ background: `hsl(${i * 60}, 60%, 70%)` }}>
                     {String.fromCharCode(64 + i)}
                   </div>
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <div className="hero__trust-stars">
-                  {[1,2,3,4,5].map(i => <Star key={i} size={14} fill="#F5B731" color="#F5B731" />)}
+                  {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill="#F5B731" color="#F5B731" />)}
                 </div>
                 <p className="hero__trust-text">Trusted by 50,000+ customers</p>
               </div>
