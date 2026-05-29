@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight, Play, ShieldCheck, Truck, Star, Users, Package,
   Smartphone, CheckCircle, TrendingUp, Award, Clock, Heart,
-  Zap, Globe, DollarSign, BadgeCheck
+  Zap, Globe, DollarSign, BadgeCheck, UserPlus, Store, Share2, 
+  SearchCheck, IndianRupee
 } from 'lucide-react';
 import './Home.css';
 
@@ -38,10 +39,36 @@ const stats = [
 
 /* ===== Steps ===== */
 const steps = [
-  { num: '01', title: 'Browse Products', desc: 'Explore thousands of verified, quality-checked products from local sellers near you.', icon: <Globe size={28} /> },
-  { num: '02', title: 'Place Your Order', desc: 'Add to cart and checkout securely. Multiple payment options available.', icon: <Smartphone size={28} /> },
-  { num: '03', title: 'Fast Delivery', desc: 'Get your products delivered right to your doorstep with real-time tracking.', icon: <Truck size={28} /> },
-  { num: '04', title: 'Earn & Save', desc: 'Earn rewards on every purchase. Refer friends for additional cashback.', icon: <DollarSign size={28} /> },
+  { 
+    num: '01', 
+    title: 'Join Us', 
+    desc: 'Sign up as a verified neighborhood partner. Submit your simplified KYC and local details for quick onboarding.',
+    icon: <UserPlus size={28} />
+  },
+  { 
+    num: '02', 
+    title: 'Setup Store', 
+    desc: 'Configure the digital inventory you wish to offer. Browse verified regional goods with no upfront inventory costs.',
+    icon: <Store size={28} />
+  },
+  { 
+    num: '03', 
+    title: 'Share Locally', 
+    desc: 'Spread the word to your neighbors. Use built-in sharing tools to broadcast your store link to your community.',
+    icon: <Share2 size={28} />
+  },
+  { 
+    num: '04', 
+    title: 'Verify Orders', 
+    desc: 'Ensure every delivery meets quality standards. Handle final local delivery of physically verified goods.',
+    icon: <SearchCheck size={28} />
+  },
+  { 
+    num: '05', 
+    title: 'Earn Rewards', 
+    desc: 'Get instant settlements for every transaction. Your commission and margins are settled to your bank account.',
+    icon: <IndianRupee size={28} />
+  },
 ];
 
 /* ===== Featured Categories ===== */
@@ -182,7 +209,7 @@ const Home: React.FC = () => {
           <div className="how-preview__head">
             <div className="section-label"><Zap size={16} /> Simple Process</div>
             <h2 className="section-title">How It <span className="text-primary">Works</span></h2>
-            <p className="section-subtitle">From browsing to delivery, experience a seamless shopping journey in just 4 simple steps.</p>
+            <p className="section-subtitle">Our proven system is designed to help community members build and grow their digital storefronts through a simple 5-step process.</p>
           </div>
           <div className="how-preview__grid">
             {steps.map((step, i) => (

@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle, Users, Award, ShieldCheck, 
-  TrendingUp, UserPlus, Store, Share2, SearchCheck, 
-  IndianRupee, Search, CheckCircle2, Package, Truck, 
-  DollarSign, Globe, Smartphone, Zap, ArrowRight, PlayCircle
+  TrendingUp, Package, Truck, 
+  DollarSign, Globe, Smartphone, Zap, ArrowRight, PlayCircle, Search, CheckCircle2
 } from 'lucide-react';
 import './HowItWorks.css';
 import ScrollReveal from '../components/ScrollReveal';
 
 const HowItWorks: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(1);
   const [activeCustomerStep, setActiveCustomerStep] = useState(1);
 
   const customerSteps = [
@@ -42,34 +40,6 @@ const HowItWorks: React.FC = () => {
       color: '#EC4899'
     }
   ];
-
-  const stepsDetails = {
-    1: {
-      title: "Join Us",
-      desc: "Submit your simplified KYC and local details. Our regional coordinators will carry out a quick digital audit and onboarding consultation in less than 24 hours.",
-      tip: "Tip: Having basic document copies ready speeds up the verified status approval."
-    },
-    2: {
-      title: "Setup Store",
-      desc: "Browse our digital inventory and select the verified regional goods you want to feature in your virtual storefront. No upfront inventory costs.",
-      tip: "Tip: Focus on essentials that are in high demand in your specific neighborhood."
-    },
-    3: {
-      title: "Share Locally",
-      desc: "Use our built-in sharing tools to broadcast your store link to your community via WhatsApp, local groups, and word-of-mouth.",
-      tip: "Tip: Personal recommendations build the strongest customer trust."
-    },
-    4: {
-      title: "Verify Orders",
-      desc: "Once an order is placed, receive the physically verified goods from our fulfillment center and handle the final local delivery.",
-      tip: "Tip: Fast, friendly delivery is key to repeat neighborhood customers."
-    },
-    5: {
-      title: "Earn Rewards",
-      desc: "Upon successful delivery, your commission and margins are instantly settled to your linked bank account.",
-      tip: "Tip: Track your daily earnings and growth analytics in your partner dashboard."
-    }
-  };
 
   return (
     <div className="hiw-page">
@@ -287,95 +257,7 @@ const HowItWorks: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Five Steps to Growth - For Partners */}
-      <section className="section bg-gradient hiw-steps-section">
-        <div className="container">
-          <div className="text-center mb-16">
-            <ScrollReveal variant="fade-up">
-              <div className="section-label" style={{ display: 'inline-flex', background: 'rgba(255, 255, 255, 0.2)', color: 'white' }}>
-                <TrendingUp size={16} /> For Partners
-              </div>
-              <h2 className="section-title" style={{ color: 'white' }}>Five Steps to Growth</h2>
-              <p className="section-subtitle" style={{ margin: '0 auto', color: 'rgba(255, 255, 255, 0.9)' }}>
-                Our proven system designed to take you from community member to successful digital entrepreneur.
-              </p>
-            </ScrollReveal>
-          </div>
 
-          {/* Stepper Header */}
-          <div className="hiw-stepper-container">
-            <div className="hiw-stepper-line"></div>
-            <div className="hiw-stepper-nodes">
-              {[1, 2, 3, 4, 5].map((step) => (
-                <button 
-                  key={step}
-                  className={`hiw-stepper-node ${activeStep === step ? 'active' : ''}`}
-                  onClick={() => setActiveStep(step)}
-                >
-                  {step}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Stepper Cards */}
-          <div className="hiw-step-cards">
-            {[
-              { num: 1, icon: <UserPlus size={24} />, title: 'Join Us', desc: 'Sign up as a verified neighborhood partner.' },
-              { num: 2, icon: <Store size={24} />, title: 'Setup Store', desc: 'Configure the digital inventory you wish to offer.' },
-              { num: 3, icon: <Share2 size={24} />, title: 'Share Locally', desc: 'Spread the word to your neighbors.' },
-              { num: 4, icon: <SearchCheck size={24} />, title: 'Verify Orders', desc: 'Ensure every delivery meets quality standards.' },
-              { num: 5, icon: <IndianRupee size={24} />, title: 'Earn Rewards', desc: 'Get instant settlements for every transaction.' },
-            ].map((card) => (
-              <div 
-                key={card.num} 
-                className={`hiw-step-card card ${activeStep === card.num ? 'active' : ''}`}
-                onClick={() => setActiveStep(card.num)}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="hiw-step-card__icon">{card.icon}</div>
-                <h4 className="font-bold mb-2 text-center">{card.title}</h4>
-                <p className="text-xs text-gray-500 text-center">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Step Detail Panel */}
-          <div className="hiw-step-detail card">
-            <div className="hiw-step-detail__header">
-              <span className="text-sm font-bold" style={{ color: '#F59E0B' }}>STEP {activeStep} IN DETAIL</span>
-              <span className="text-xs text-gray-400 uppercase flex items-center gap-1">
-                <span style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: 'var(--primary)' }}></span>
-                Active Guide
-              </span>
-            </div>
-            <div className="hiw-step-detail__body">
-              <div className="hiw-step-detail__icon-large">
-                {activeStep === 1 && <UserPlus size={32} />}
-                {activeStep === 2 && <Store size={32} />}
-                {activeStep === 3 && <Share2 size={32} />}
-                {activeStep === 4 && <SearchCheck size={32} />}
-                {activeStep === 5 && <IndianRupee size={32} />}
-              </div>
-              <div className="hiw-step-detail__content">
-                <h3 className="text-2xl font-bold mb-4">{stepsDetails[activeStep as keyof typeof stepsDetails].title}</h3>
-                <p className="text-gray-700 mb-6 line-height-relaxed">
-                  {stepsDetails[activeStep as keyof typeof stepsDetails].desc}
-                </p>
-                <div className="hiw-step-detail__tip">
-                  <div className="flex items-start gap-2">
-                    <span style={{ color: '#F59E0B', fontWeight: 'bold' }}>?</span>
-                    <span className="text-sm" style={{ color: '#B45309' }}>
-                      {stepsDetails[activeStep as keyof typeof stepsDetails].tip}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
     </div>
   );
 };
