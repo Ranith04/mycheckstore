@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Play, ShieldCheck, CreditCard, Package,
+  Play, ShieldCheck, Package,
   Star, ArrowRight, CheckCircle, Zap, TrendingUp,
   Users, Store, IndianRupee, Clock, Smartphone
 } from 'lucide-react';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Search, SlidersHorizontal, Star, ShieldCheck, Heart,
   ShoppingCart, Grid3X3, List, MapPin, TrendingUp, Zap,
-  Award, Filter, X, ChevronDown, Package, Truck, IndianRupee
+  Award, Filter, X, Package, Truck, IndianRupee
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Shop.css';
